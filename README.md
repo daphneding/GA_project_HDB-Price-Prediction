@@ -123,7 +123,7 @@ The top features impacting the price derived from the model are: **flat size**, 
 
 In light of these findings, for potential young couples who are looking for a good budget buy, it is advised to compromise one or more of these features based on their specific needs. For instance, with more people working from home nowadays, young couples may need more space at home than ever. In such case, they may want to consider flats with shorter lease remaining years for better utility value.  
 
-## Recommendations for Further Studies:
+## Recommendations for Further Studies
 
 - A larger dataset including more features of the flats, like direction of window facing, whether or not it is close to a place of worship, may add to the variance level of the data and provide a better fit model.
 
