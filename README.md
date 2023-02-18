@@ -92,17 +92,9 @@ Before applying 1.Ridge Regression as the best trained model for the price predi
 
 ![features](./img/features.png)
 
-Scaling the features before training a linear regression, Ridge, or Lasso model can affect the interpretation of the model in several ways:
-
-Coefficient magnitudes: Scaling the features can affect the magnitude of the coefficients in the model. If the features have different scales, some coefficients may be very large or very small compared to others, which can make it difficult to compare the relative importance of the features. Scaling the features can help to ensure that the coefficients have similar magnitudes, which makes it easier to compare their importance.
-
-Regularization: In Ridge and Lasso regression, the regularization term depends on the magnitude of the coefficients, so scaling the features can affect the magnitude of the coefficients and the magnitude of the regularization term. This can in turn affect the model's stability and the feature selection properties of the model.
-
-Feature importances: The coefficients in linear regression, Ridge, and Lasso models give you an idea of the importance of each feature in explaining the variation in the target variable. However, the interpretation of the coefficients can be affected by the scale of the features. Scaling the features can help to ensure that the coefficients have a meaningful interpretation in terms of the original units of the features.
-
 #### Model Limitations:
 
-- Although **multicollinearity** does not affect the regression estimates, it makes them vague, imprecise, and unreliable. Thus, it can be hard to determine how the independent variables influence the dependent variable individually. This inflates the standard errors of some or all of the regression coefficients. ([Source](https://www.investopedia.com/terms/m/multicollinearity.asp#:~:text=Although%20multicollinearity%20does%20not%20affect,all%20of%20the%20regression%20coefficients.))
+- **Multicollinearity** among the selected features was not analysed. Although this does not affect the regression estimates, it makes them vague, imprecise, and unreliable. Thus, it can be hard to determine how the independent variables influence the dependent variable individually. This inflates the standard errors of some or all of the regression coefficients. ([Source](https://www.investopedia.com/terms/m/multicollinearity.asp#:~:text=Although%20multicollinearity%20does%20not%20affect,all%20of%20the%20regression%20coefficients.))
 
 - The coefficients in linear models are supposed to give us an idea of the magnitute of impact by each feature in explaining the variation in the target variable. However, the interpretation of the coefficients can be affected by the **scaling of the features**. 
 
