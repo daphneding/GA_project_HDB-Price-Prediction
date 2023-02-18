@@ -10,11 +10,11 @@ Many of the HDB flat owners purchase resale flats from the market instead of app
 
 For example, The "Singapore's Smarter Property Search" page [99.co](https://www.99.co/) released an instant property value calculation tool for their users:
 
-![a4953810-8689-4bce-bc86-daed8786a26e](./img/a4953810-8689-4bce-bc86-daed8786a26e.png)
+![99_co](./img/99_co.png)
 
 This housing price prediction project aims to simulate an accurate and reliable model just like the one used by [99.co](https://www.99.co/) for valuation of a HDB resale flat. 
 
-Linear Regression is used as it is an effective model to establish relationship between the resale price variable from explanatory variables associated with it. ([Source](https://www.knowledgehut.com/blog/data-science/linear-regression-for-machine-learning)) The model is trained using transaction data from 2012 to 2020 and will be evaluated using RMSE as the primary metric. 
+Linear Regression is used as it is an effective model to establish relationship between the resale price variable from explanatory variables associated with it. ([Source](https://www.knowledgehut.com/blog/data-science/linear-regression-for-machine-learning)) The model is trained using transaction data from 2012 to 2020 and will be evaluated using RMSE as the primary metric, and R-square score as the secondary metric. 
 
 ## Problem Statement
 
@@ -39,6 +39,12 @@ For instance, referring to the above showing the columns with missing values, it
 
 - To identify the correlation between features and the predicting variables, in this case the resale price of HDB.
 - To provide evidences for feature selection process.
+- To identify the outliers and decide what to do with them. 
+
+As we identified where the price outliers ($1mil flats) are located (see the map below):
+![mil_flat_location](./img/mil_flat_location.png)
+
+It is noticed the top priced flats are all from the "prime locations", which means they are a good reflection of the high values of the location. Including these data will improve the variance and guide our model for a better prediction. In short, these price "outliers" should not be removed for data modeling. 
 
 ## 3. Preprocessing
 
@@ -52,8 +58,57 @@ Regularization using Lasso, Ridge and Elastic Net to penalize unnecessary featur
 
 ## 4. Modeling
 
+A few models are tested and evaluated based on the RMSE (primary metric) and R-square score (secondary metric):
+- Base model (using the average of the resale price in the training data)
+- Ridge Regression with Standard Scaler
+- Lasso Regression with Standard Scaler
+- ElasticNet Regression with Standard Scaler
 
 ## 5. Model Evaluation
 
-## 6. Prediction
+Results of Linear Model trainings are as follows: 
+1. Ridge Regression: 
+R2-score on training set: 0.888
+R2-score on validation set: 0.887
+RMSE on training set : 47907.6
+RMSE on validation set: 48089.7
 
+2. Lasso Regression: 
+R2-score on training set: 0.888
+R2-score on validation set: 0.886
+RMSE on training set : 48060.8
+RMSE on validation set: 48207.6
+
+3. ElasticNet Regression: 
+R2-score on training set: 0.496
+R2-score on validation set: 0.496
+RMSE on training set : 101835.3
+RMSE on validation set: 101446.0
+
+Before applying 1.Ridge Regression as the best trained model for the price prediction, a visualisation of predicted values vs. actual values in the validation set is helpful to understand if the model performs well:
+
+![residual]residual.png
+
+#### Interpretation of the coefficients helps us understand the importance of input features of the model:
+
+Scaling the features before training a linear regression, Ridge, or Lasso model can affect the interpretation of the model in several ways:
+
+Coefficient magnitudes: Scaling the features can affect the magnitude of the coefficients in the model. If the features have different scales, some coefficients may be very large or very small compared to others, which can make it difficult to compare the relative importance of the features. Scaling the features can help to ensure that the coefficients have similar magnitudes, which makes it easier to compare their importance.
+
+Regularization: In Ridge and Lasso regression, the regularization term depends on the magnitude of the coefficients, so scaling the features can affect the magnitude of the coefficients and the magnitude of the regularization term. This can in turn affect the model's stability and the feature selection properties of the model.
+
+Feature importances: The coefficients in linear regression, Ridge, and Lasso models give you an idea of the importance of each feature in explaining the variation in the target variable. However, the interpretation of the coefficients can be affected by the scale of the features. Scaling the features can help to ensure that the coefficients have a meaningful interpretation in terms of the original units of the features.
+
+## 6. Prediction
+- Apply the best performing model on the predicting set to get the predictions. 
+
+## Conclusions
+
+We start with a dataset containing 80 sets with the goal to create accurate yet generalize prediction model. After performing data cleaning, feature engineering, feature elimination (through majority counts, collinearity and regularization), we manage to create a model with relatively low bias score and generelized well across different dataset.
+
+Even more importantly than being able to create a prediction model is the insight on which parameter will strongly affect the House selling price. For example, a house owner may want to invest certain amount of money to improve overall condition of the house or increase the size of garage to fit more than a car before selling the house. Understanding from the model also will provide a good estimate of how much money should the house owner invest on to make the investment worthwhile considering the potential return.
+
+## Model Limitation and Recommendations for Further Studies:
+The choice of Ordinal Encoding to convert categorical feature numeric prevent us to obtain insight on particular category in the feature is important on the Sale Price. For example, if we know that exterior quality is important, than what kind of exterior quality a house owner need to renovate his house to to maximize his potential sale price.
+More selection of categorical variables into the pool to see which other variable may be significant since Lasso regularization has reduced total variable from 30 to 19.
+To examine closer on the five assumptions of linearity regression and if linear regression model is well-poised for this problem.
