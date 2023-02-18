@@ -29,7 +29,9 @@ Aside, I hope to help realters and investors to understand which feature(s) are 
 
 ### 1. Data Cleaning
 - Handling missing values by dropping less significant columns yet with a high percentage of missing values:
+
 ![missing_value](./img/missing_value.png)
+
 For instance, referring to the above showing the columns with missing values, it is considered safe to drop features like `Mall_Within_500m` `Mall_Within_1km` `Mall_Within_2km`. 
 
 - Handling missing values by dropping rows (where the percentage of missing values is low)
@@ -87,7 +89,7 @@ RMSE on validation set: 101446.0
 
 Before applying 1.Ridge Regression as the best trained model for the price prediction, a visualisation of predicted values vs. actual values in the validation set is helpful to understand if the model performs well:
 
-![residual]residual.png
+![residual](./img/residual.png)
 
 #### Interpretation of the coefficients helps us understand the importance of input features of the model:
 
@@ -103,7 +105,7 @@ Feature importances: The coefficients in linear regression, Ridge, and Lasso mod
 - Apply the best performing model on the predicting set to get the predictions. 
 - Kaggle submission:
 
-i[kaggle]kaggle.png
+i[kaggle](./img/kaggle.png)
 
 ## Conclusions
 
@@ -114,4 +116,3 @@ Even more importantly than being able to create a prediction model is the insigh
 ## Model Limitation and Recommendations for Further Studies:
 The choice of Ordinal Encoding to convert categorical feature numeric prevent us to obtain insight on particular category in the feature is important on the Sale Price. For example, if we know that exterior quality is important, than what kind of exterior quality a house owner need to renovate his house to to maximize his potential sale price.
 More selection of categorical variables into the pool to see which other variable may be significant since Lasso regularization has reduced total variable from 30 to 19.
-To examine closer on the five assumptions of linearity regression and if linear regression model is well-poised for this problem.
