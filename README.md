@@ -88,7 +88,7 @@ Before applying 1.Ridge Regression as the best trained model for the price predi
 
 ![residual](./img/residual.png)
 
-#### Interpretation of the coefficients helps us understand the top input features that affect the price result:
+#### Top features derived from the model based on coefficients:
 
 ![features](./img/features.png)
 
@@ -100,20 +100,33 @@ Regularization: In Ridge and Lasso regression, the regularization term depends o
 
 Feature importances: The coefficients in linear regression, Ridge, and Lasso models give you an idea of the importance of each feature in explaining the variation in the target variable. However, the interpretation of the coefficients can be affected by the scale of the features. Scaling the features can help to ensure that the coefficients have a meaningful interpretation in terms of the original units of the features.
 
+#### Model Limitations:
+
+- Although **multicollinearity** does not affect the regression estimates, it makes them vague, imprecise, and unreliable. Thus, it can be hard to determine how the independent variables influence the dependent variable individually. This inflates the standard errors of some or all of the regression coefficients. ([Source](https://www.investopedia.com/terms/m/multicollinearity.asp#:~:text=Although%20multicollinearity%20does%20not%20affect,all%20of%20the%20regression%20coefficients.))
+
+- The coefficients in linear models are supposed to give us an idea of the magnitute of impact by each feature in explaining the variation in the target variable. However, the interpretation of the coefficients can be affected by the **scaling of the features**. 
+
+- Retraining of the model using **different sets of features** could optimise the model preformance. 
+
 ## 6. Prediction
 - Apply the best performing model on the predicting set to get the predictions. 
 - Kaggle submission:
 
 ![kaggle](./img/kaggle.png)
 
+
 ## Conclusions
 
-We started with a dataset of 150,000 transactions and 77 features with the goal to create accurate yet generalize prediction model. After performing data cleaning, EDA, and preprocessing (feature selection and One Hot Encoding), we managed to create a model with an acceptable RMSE score and generelized well across the validation set.
+I started with a dataset of 150,000 transactions and 77 features with the goal to create accurate yet generalisable prediction model. After performing data cleaning, EDA, and preprocessing (feature selection and One Hot Encoding), a model was trained with an acceptable RMSE score (RMSE: 47907.6) and generelized well across the validation set (RMSE:48089.7).
 
-Even more importantly than being able to create a prediction model is the insight on which parameter will strongly affect the HDB resale price. For example, potential young couples who are looking for a good budget buy with a bigger space (if both are working from home) may want to consider flats with shorter lease remaining years for better utility value.  
+The top features impacting the price derived from the model are: **flat size**, **flat age** and **flat model**. 
+
+In light of these findings, for potential young couples who are looking for a good budget buy, it is advised to compromise one or more of these features based on their specific needs. For instance, with more people working from home nowadays, young couples may need more space at home than ever. In such case, they may want to consider flats with shorter lease remaining years for better utility value.  
 
 ## Recommendations for Further Studies:
-- External factors impacting the price fluctuations should be taken into consideration for understanding the HDB price better. For instance, government cooling policies, macro economic trend, Covid outbreak, supply/demand balance etc. 
+
 - A larger dataset including more features of the flats, like direction of window facing, whether or not it is close to a place of worship, may add to the variance level of the data and provide a better fit model.
-- For improved model performance, models selecting different features, and/or including interaction terms of features can be built and evaluated in parallel. The optimal model should come with the best RMSE and R-square score. 
+
+- External factors impacting the price fluctuations should be taken into consideration for understanding the HDB price better. For instance, government cooling policies, macro economic trend, Covid outbreak, supply/demand balance etc. 
+
 
