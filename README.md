@@ -65,26 +65,27 @@ A few models are tested and evaluated based on the RMSE (primary metric) and R-s
 
 ### 5. Model Evaluation
 
-Results of Linear Model trainings are as follows: 
-1. Ridge Regression: 
-R2-score on training set: 0.888
-R2-score on validation set: 0.887
-RMSE on training set : 47907.6
-RMSE on validation set: 48089.7
+Results of Linear Model trainings are as follows:
+
+**1. Ridge Regression: **
+- R2-score on training set: **0.888**
+- R2-score on validation set: **0.887**
+- RMSE on training set : **47907.6**
+- RMSE on validation set: **48089.7**
 
 2. Lasso Regression: 
-R2-score on training set: 0.888
-R2-score on validation set: 0.886
-RMSE on training set : 48060.8
-RMSE on validation set: 48207.6
+- R2-score on training set: 0.888
+- R2-score on validation set: 0.886
+- RMSE on training set : 48060.8
+- RMSE on validation set: 48207.6
 
 3. ElasticNet Regression: 
-R2-score on training set: 0.496
-R2-score on validation set: 0.496
-RMSE on training set : 101835.3
-RMSE on validation set: 101446.0
+- R2-score on training set: 0.496
+- R2-score on validation set: 0.496
+- RMSE on training set : 101835.3
+- RMSE on validation set: 101446.0
 
-Before applying 1.Ridge Regression as the best trained model for the price prediction, a visualisation of predicted values vs. actual values in the validation set is helpful to understand if the model performs well:
+Before applying **1.Ridge Regression** being the best trained model for the price prediction, a visualisation of predicted values vs. actual values in the validation set is helpful to understand if the model performs well:
 
 ![residual](./img/residual.png)
 
