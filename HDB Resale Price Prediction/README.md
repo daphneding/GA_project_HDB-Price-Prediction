@@ -27,7 +27,7 @@ Aside, I hope to help realters and investors to understand which feature(s) are 
 
 #### The problem is approached with the following steps:
 
-## 1. Data Cleaning
+### 1. Data Cleaning
 - Handling missing values by dropping less significant columns yet with a high percentage of missing values:
 ![missing_value](./img/missing_value.png)
 For instance, referring to the above showing the columns with missing values, it is considered safe to drop features like `Mall_Within_500m` `Mall_Within_1km` `Mall_Within_2km`. 
@@ -35,7 +35,7 @@ For instance, referring to the above showing the columns with missing values, it
 - Handling missing values by dropping rows (where the percentage of missing values is low)
 - Handling missing values by imputing using median value (when the values are skewed)
 
-## 2. Explotary Data Analysis
+### 2. Explotary Data Analysis
 
 - To identify the correlation between features and the predicting variables, in this case the resale price of HDB.
 - To provide evidences for feature selection process.
@@ -46,7 +46,7 @@ As we identified where the price outliers ($1mil flats) are located (see the map
 
 It is noticed the top priced flats are all from the "prime locations", which means they are a good reflection of the high values of the location. Including these data will improve the variance and guide our model for a better prediction. In short, these price "outliers" should not be removed for data modeling. 
 
-## 3. Preprocessing
+### 3. Preprocessing
 
 Linear Regression only takes numerical values to model, we need the following steps for preprocessing before model training:
 
@@ -56,7 +56,7 @@ Linear Regression only takes numerical values to model, we need the following st
 - Remove features with majority counts for a single category. This feature may not provide extra information as most data falls under the same category.
 Regularization using Lasso, Ridge and Elastic Net to penalize unnecessary features is important.
 
-## 4. Modeling
+### 4. Modeling
 
 A few models are tested and evaluated based on the RMSE (primary metric) and R-square score (secondary metric):
 - Base model (using the average of the resale price in the training data)
@@ -64,7 +64,7 @@ A few models are tested and evaluated based on the RMSE (primary metric) and R-s
 - Lasso Regression with Standard Scaler
 - ElasticNet Regression with Standard Scaler
 
-## 5. Model Evaluation
+### 5. Model Evaluation
 
 Results of Linear Model trainings are as follows: 
 1. Ridge Regression: 
@@ -101,6 +101,9 @@ Feature importances: The coefficients in linear regression, Ridge, and Lasso mod
 
 ## 6. Prediction
 - Apply the best performing model on the predicting set to get the predictions. 
+- Kaggle submission:
+
+i[kaggle]kaggle.png
 
 ## Conclusions
 
