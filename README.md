@@ -91,7 +91,9 @@ Before applying 1.Ridge Regression as the best trained model for the price predi
 
 ![residual](./img/residual.png)
 
-#### Interpretation of the coefficients helps us understand the importance of input features of the model:
+#### Interpretation of the coefficients helps us understand the top input features that affect the price result:
+
+![features](./img/features.png)
 
 Scaling the features before training a linear regression, Ridge, or Lasso model can affect the interpretation of the model in several ways:
 
@@ -105,15 +107,16 @@ Feature importances: The coefficients in linear regression, Ridge, and Lasso mod
 - Apply the best performing model on the predicting set to get the predictions. 
 - Kaggle submission:
 
-i[kaggle](./img/kaggle.png)
+![kaggle](./img/kaggle.png)
 
 ## Conclusions
 
-We start with a dataset containing 80 sets with the goal to create accurate yet generalize prediction model. After performing data cleaning, feature engineering, feature elimination (through majority counts, collinearity and regularization), we manage to create a model with relatively low bias score and generelized well across different dataset.
+We started with a dataset of 150,000 transactions and 77 features with the goal to create accurate yet generalize prediction model. After performing data cleaning, EDA, and preprocessing (feature selection and One Hot Encoding), we managed to create a model with an acceptable RMSE score and generelized well across the validation set.
 
-Even more importantly than being able to create a prediction model is the insight on which parameter will strongly affect the House selling price. For example, a house owner may want to invest certain amount of money to improve overall condition of the house or increase the size of garage to fit more than a car before selling the house. Understanding from the model also will provide a good estimate of how much money should the house owner invest on to make the investment worthwhile considering the potential return.
+Even more importantly than being able to create a prediction model is the insight on which parameter will strongly affect the HDB resale price. For example, potential young couples who are looking for a good budget buy with a bigger space (if both are working from home) may want to consider flats with shorter lease remaining years for better utility value.  
 
-## Model Limitation and Recommendations for Further Studies:
-The choice of Ordinal Encoding to convert categorical feature numeric prevent us to obtain insight on particular category in the feature is important on the Sale Price. For example, if we know that exterior quality is important, than what kind of exterior quality a house owner need to renovate his house to to maximize his potential sale price.
-More selection of categorical variables into the pool to see which other variable may be significant since Lasso regularization has reduced total variable from 30 to 19.
+## Recommendations for Further Studies:
+- External factors impacting the price fluctuations should be taken into consideration for understanding the HDB price better. For instance, government cooling policies, macro economic trend, Covid outbreak, supply/demand balance etc. 
+- A larger dataset including more features of the flats, like direction of window facing, whether or not it is close to a place of worship, may add to the variance level of the data and provide a better fit model.
+- For improved model performance, models selecting different features, and/or including interaction terms of features can be built and evaluated in parallel. The optimal model should come with the best RMSE and R-square score. 
 
