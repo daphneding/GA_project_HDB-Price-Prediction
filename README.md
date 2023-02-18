@@ -67,19 +67,19 @@ A few models are tested and evaluated based on the RMSE (primary metric) and R-s
 
 Results of Linear Model trainings are as follows:
 
-**1. Ridge Regression: **
+**1.Ridge Regression**
 - R2-score on training set: **0.888**
 - R2-score on validation set: **0.887**
 - RMSE on training set : **47907.6**
 - RMSE on validation set: **48089.7**
 
-2. Lasso Regression: 
+2.Lasso Regression: 
 - R2-score on training set: 0.888
 - R2-score on validation set: 0.886
 - RMSE on training set : 48060.8
 - RMSE on validation set: 48207.6
 
-3. ElasticNet Regression: 
+3.ElasticNet Regression: 
 - R2-score on training set: 0.496
 - R2-score on validation set: 0.496
 - RMSE on training set : 101835.3
